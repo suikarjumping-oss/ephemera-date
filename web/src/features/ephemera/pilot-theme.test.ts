@@ -1,3 +1,8 @@
+// Theme tokens do not need the native/web font asset loader (which imports .woff2 files).
+jest.mock("../../fonts", () => ({
+  F: new Proxy({}, { get: (_target, key) => String(key) }),
+}));
+
 import { MAPPAL, PLAN_COLORS, SKIN_ORDER, SKINS, planCol, segC } from "./theme";
 
 const vividOriginal = /#(?:D92662|E9789F|C8475F|3FA1C6|F9C4D3|B0234F|C2185B)/i;
