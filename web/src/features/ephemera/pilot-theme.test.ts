@@ -39,6 +39,16 @@ describe("private paper palette", () => {
       expect(contrast(skin.deep, skin.bg)).toBeGreaterThanOrEqual(4.5);
       expect(contrast("#ffffff", skin.btn)).toBeGreaterThanOrEqual(4.5);
       expect(contrast("#ffffff", skin.seal)).toBeGreaterThanOrEqual(4.5);
+      expect(skin.tagT).toBe("#fff");
+      expect(contrast("#ffffff", skin.tag)).toBeGreaterThanOrEqual(4.5);
+
+      const map = MAPPAL[key];
+      expect(contrast(map.ink, map.card)).toBeGreaterThanOrEqual(4.5);
+      expect(contrast(map.title, map.page)).toBeGreaterThanOrEqual(4.5);
+      expect(contrast(map.route, map.page)).toBeGreaterThanOrEqual(4.5);
+    }
+    for (const ticket of Object.values(PLAN_COLORS)) {
+      expect(contrast(ticket.t, ticket.c)).toBeGreaterThanOrEqual(4.5);
     }
   });
 });
