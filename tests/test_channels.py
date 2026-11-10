@@ -90,7 +90,8 @@ def test_showing_is_not_claiming_and_claims_are_exclusive(monkeypatch):
     assert inbox.count_open(later) == 0
 
 
-def test_context_claim_and_relay_endpoints(app_client):
+def test_context_claim_and_relay_endpoints(app_client, monkeypatch):
+    monkeypatch.setattr(dp, "_now", lambda: T(10, 27, 20, 1))
     make_plan()
     scheduler.tick(now=T(10, 27, 20, 1))
     r = app_client.get("/context", params={"claim": "relay"}, headers=H(AI_TOKEN))
@@ -800,7 +801,8 @@ def test_mcp_over_http_lists_calls_and_marks_results_secret(app_client):
     assert res["isError"] is True and res["_meta"]["ephemera/secret"] is True
 
 
-def test_two_mcp_sessions_with_the_same_app_name_cannot_both_claim(app_client):
+def test_two_mcp_sessions_with_the_same_app_name_cannot_both_claim(app_client, monkeypatch):
+    monkeypatch.setattr(dp, "_now", lambda: T(10, 27, 20, 1))
     make_plan()
     remind.process_reminders(now=T(10, 27, 20, 1))
     s1, s2 = _session(app_client, "same-app"), _session(app_client, "same-app")
