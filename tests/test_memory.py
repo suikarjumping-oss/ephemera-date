@@ -384,7 +384,8 @@ def test_photo_get_without_stop_id_servable():
     assert f.is_file() and mime == "image/jpeg"
 
 
-def test_photo_http_route_stop_id_optional():
+def test_photo_http_route_stop_id_optional(monkeypatch):
+    monkeypatch.setattr(date_her, "_now", lambda: NOW0)
     pid, (s1, s2) = make_plan()
     c = _her_client()
     resp = c.post(f"/api/dates/{pid}/her/photo",
