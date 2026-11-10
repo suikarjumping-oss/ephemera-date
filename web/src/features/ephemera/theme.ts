@@ -1,4 +1,4 @@
-// Ephemera 配色(数值逐个取自原型,不加新色)。
+// Ephemera 私人紙品配色：沿用既有 skin、票根與地圖 token，不修改引擎。
 // 四套皮肤在 Me 页切换,整套一起换;地图页那套 MAPPAL 跟着皮肤走。
 // 一次约会自己的颜色(他从固定色组挑)只上历史票根、书脊、盒盖——不随外壳皮肤变(原型 PAST_COL 注释)。
 import { F } from "../../fonts";
@@ -16,36 +16,36 @@ export type Skin = {
 };
 
 export const SKINS: Record<SkinKey, Skin> = {
-  ivory: { name: "奶白底", bg: "#FBF6EF", ink: "#3B2F3B", deep: "#D92662", btn: "#D92662", sh: "90,60,70",
-    big: { c: "#F9C4D3", l: "#D92662", panel: "#3FA1C6", art: "#FFF6F2" }, paper: "#FFFDF9", paper2: "#F2E8DE",
-    envPaper: "#F8D6DE", envBack: "#EFC3CE", seal: "#D92662", sealHi: "#FFD9E3", tag: "#3FA1C6", tagT: "#fff", pack: "#E3EEF3" },
-  blue: { name: "粉蓝撞色", bg: "#F5F8FA", ink: "#22364A", deep: "#D92662", btn: "#2C86AE", sh: "40,70,100",
-    big: { c: "#C7E3EE", l: "#1F6F95", panel: "#E9789F", art: "#FFF6F2" }, paper: "#FFFFFF", paper2: "#E4EEF3",
-    envPaper: "#CFE4ED", envBack: "#B9D7E4", seal: "#D92662", sealHi: "#FFD9E3", tag: "#E9789F", tagT: "#fff", pack: "#F9DCE4" },
-  warm: { name: "暖奶油", bg: "#F6EFE6", ink: "#46302B", deep: "#C8475F", btn: "#C8475F", sh: "90,60,45",
-    big: { c: "#F3DDD2", l: "#C8475F", panel: "#C8475F", art: "#FBEFE6" }, paper: "#FFFAF4", paper2: "#EADCCB",
-    envPaper: "#EEDFD0", envBack: "#E3CFBC", seal: "#C8475F", sealHi: "#F6C9D1", tag: "#8DB6CB", tagT: "#fff", pack: "#E2ECEF" },
-  bright: { name: "原来的粉", bg: "#FFF2F5", ink: "#6B2140", deep: "#D92662", btn: "#D92662", sh: "120,30,70",
-    big: { c: "#F9BFD0", l: "#D92662", panel: "#3FA1C6", art: "#FFF6F2" }, paper: "#FFFAF8", paper2: "#FCE3EA",
-    envPaper: "#F7D3DC", envBack: "#EFC2CD", seal: "#D92662", sealHi: "#FFD9E3", tag: "#3FA1C6", tagT: "#fff", pack: "#BFE0EC" },
+  ivory: { name: "森林紙", bg: "#F7F4EC", ink: "#2F3836", deep: "#314D44", btn: "#314D44", sh: "45,54,49",
+    big: { c: "#E5E8DD", l: "#314D44", panel: "#CCD6CB", art: "#F7F4EC" }, paper: "#FFFEF9", paper2: "#E9E5DA",
+    envPaper: "#ECE8DE", envBack: "#DAD9CF", seal: "#415B51", sealHi: "#AEBBAE", tag: "#314D44", tagT: "#fff", pack: "#E4E9E3" },
+  blue: { name: "墨藍紙", bg: "#F4F4F0", ink: "#333D46", deep: "#303F50", btn: "#303F50", sh: "51,61,71",
+    big: { c: "#D8E0E4", l: "#303F50", panel: "#BAC9D0", art: "#F8F9F6" }, paper: "#FCFCF9", paper2: "#E7ECEC",
+    envPaper: "#E4E8E7", envBack: "#D5DEE0", seal: "#3C5162", sealHi: "#B1C0C4", tag: "#3C5162", tagT: "#fff", pack: "#E3E9EA" },
+  warm: { name: "茶灰紙", bg: "#F6F1E9", ink: "#47413B", deep: "#655D50", btn: "#655D50", sh: "74,66,57",
+    big: { c: "#EEE4D3", l: "#655D50", panel: "#D9CEBA", art: "#FFFBF5" }, paper: "#FFFAF2", paper2: "#E8DDCC",
+    envPaper: "#EFE6D9", envBack: "#DED3C2", seal: "#716459", sealHi: "#D1C5B6", tag: "#655D50", tagT: "#fff", pack: "#E9E2D7" },
+  bright: { name: "冷霧紙", bg: "#F6F7F5", ink: "#343F3C", deep: "#3C5750", btn: "#3C5750", sh: "53,62,58",
+    big: { c: "#E1EAE4", l: "#3C5750", panel: "#C6D6CB", art: "#F7FAF8" }, paper: "#FFFFFF", paper2: "#E6ECE8",
+    envPaper: "#E7EFE9", envBack: "#D2DED8", seal: "#416459", sealHi: "#AEC8B9", tag: "#416459", tagT: "#fff", pack: "#E3ECE6" },
 };
 
 // 地图页 / 路线页 / 纪念盒(--m-*)
 export type MapPal = { page: string; land: string; street: string; water: string; park: string; ink: string; title: string;
   route: string; card: string; chip: string; chipDone: string; chipLock: string };
 export const MAPPAL: Record<SkinKey, MapPal> = {
-  ivory: { page: "#F6E6E1", land: "#F8EDE6", street: "#E7B7C3", water: "#A6C8D0", park: "#C8D6C7", ink: "#634458", title: "#A8435F", route: "#C15772", card: "#FBF4EF", chip: "#F3D9DE", chipDone: "#E3EBE2", chipLock: "#EDE2E0" },
-  blue: { page: "#E8EFF3", land: "#F3F7F9", street: "#C3D8E4", water: "#8FC0D6", park: "#CFE0D6", ink: "#22364A", title: "#1F6F95", route: "#D92662", card: "#FAFCFD", chip: "#F9DCE4", chipDone: "#DCEAE2", chipLock: "#E4EAEE" },
-  warm: { page: "#EFE3D6", land: "#F6EDE2", street: "#E6C7B6", water: "#A9C3CE", park: "#CDD3BE", ink: "#46302B", title: "#A93E52", route: "#C8475F", card: "#FBF5EE", chip: "#F1D7D2", chipDone: "#E2E4D6", chipLock: "#EADFD5" },
-  bright: { page: "#FCE6EC", land: "#FFF2F5", street: "#F4B9CB", water: "#AFD8E8", park: "#D3E4D2", ink: "#6B2140", title: "#C2185B", route: "#D92662", card: "#FFF8FA", chip: "#FBD3DF", chipDone: "#E0EDE0", chipLock: "#F3E2E7" },
+  ivory: { page: "#F2F0E7", land: "#F7F5EE", street: "#D6D6CA", water: "#B7CDD0", park: "#D5DFD1", ink: "#32443E", title: "#314D44", route: "#415B51", card: "#FFFEF9", chip: "#E1E8DE", chipDone: "#D3E3D5", chipLock: "#E9E8E1" },
+  blue: { page: "#EEF0EF", land: "#F7F8F5", street: "#D4DBDD", water: "#B4CED8", park: "#D7E2DA", ink: "#333D46", title: "#303F50", route: "#3C5162", card: "#FCFCF9", chip: "#DDE6E9", chipDone: "#D7E5DE", chipLock: "#E8EBEC" },
+  warm: { page: "#F2EDE3", land: "#FAF6EE", street: "#DED7CA", water: "#C0D1D2", park: "#DCE1CF", ink: "#47413B", title: "#655D50", route: "#716459", card: "#FFFAF2", chip: "#E9E1D5", chipDone: "#DDE5D5", chipLock: "#ECE7DE" },
+  bright: { page: "#EFF3EF", land: "#F7F9F6", street: "#D7E2DB", water: "#BAD3D5", park: "#D3E1D5", ink: "#343F3C", title: "#3C5750", route: "#416459", card: "#FFFFFF", chip: "#DFEAE1", chipDone: "#D4E5D8", chipLock: "#E8EEEA" },
 };
 
 // 当天连票:右侧副券跳色,每格不同,随皮肤换 [底, 插画, 检票章]
 const SEGCOLS: Record<SkinKey, Array<[string, string, string]>> = {
-  ivory: [["#3FA1C6", "#FFF6F2", "#D92662"], ["#E9789F", "#FFF6F2", "#3F2F4A"], ["#7E8FD6", "#FFF6F2", "#D92662"], ["#D92662", "#FFF6F2", "#2E3F66"]],
-  bright: [["#3FA1C6", "#FFF6F2", "#D92662"], ["#E9789F", "#FFF6F2", "#3F2F4A"], ["#7E8FD6", "#FFF6F2", "#D92662"], ["#D92662", "#FFF6F2", "#2E3F66"]],
-  blue: [["#E9789F", "#FFF6F2", "#1F6F95"], ["#3FA1C6", "#FFF6F2", "#D92662"], ["#F2A8C1", "#B0234F", "#1F6F95"], ["#1F6F95", "#FFF6F2", "#D92662"]],
-  warm: [["#9EC4D6", "#24485C", "#C8475F"], ["#E28AA0", "#FFF6F2", "#46302B"], ["#B9A7C9", "#3E2F52", "#C8475F"], ["#C8475F", "#FBEFE6", "#24485C"]],
+  ivory: [["#D4DFD4", "#314D44", "#415B51"], ["#DCE1DA", "#314D44", "#55665E"], ["#CDD9D9", "#303F50", "#415B51"], ["#E6DFD3", "#655D50", "#314D44"]],
+  bright: [["#D8E7DD", "#3C5750", "#416459"], ["#E2EAE3", "#3C5750", "#52675D"], ["#CBDDD9", "#343F3C", "#416459"], ["#E4E9E2", "#3C5750", "#416459"]],
+  blue: [["#D6E1E5", "#303F50", "#3C5162"], ["#E0E7E7", "#303F50", "#3C5162"], ["#C8D7DD", "#303F50", "#3C5162"], ["#D2DADF", "#303F50", "#3C5162"]],
+  warm: [["#E7DDCE", "#655D50", "#716459"], ["#E4DFD4", "#655D50", "#716459"], ["#DCDDD1", "#655D50", "#716459"], ["#E8E1D6", "#655D50", "#716459"]],
 };
 export const segC = (skin: SkinKey, i: number) => {
   const [bg, art, stamp] = SEGCOLS[skin][i % 4];
@@ -57,11 +57,11 @@ export const segC = (skin: SkinKey, i: number) => {
 export type PlanColor = "blush" | "rose" | "cream" | "sky" | "berry";
 export type TicketCol = { c: string; t: string; art: string; inv?: boolean; panel?: string };
 export const PLAN_COLORS: Record<PlanColor, TicketCol> = {
-  blush: { c: "#F9C4D3", t: "#D92662", art: "#D92662" },
-  rose: { c: "#E9789F", t: "#FFF6F2", art: "#FFF6F2", inv: true, panel: "#3FA1C6" },
-  cream: { c: "#FFF8EF", t: "#C8475F", art: "#C8475F" },
-  sky: { c: "#3FA1C6", t: "#FFF6F2", art: "#FFF6F2" },
-  berry: { c: "#D92662", t: "#FFF6F2", art: "#FFF6F2" },
+  blush: { c: "#E6E0D6", t: "#3A4A42", art: "#3A4A42" },
+  rose: { c: "#D4E0D6", t: "#314D44", art: "#314D44", inv: true, panel: "#C4D2C8" },
+  cream: { c: "#F7F2E9", t: "#655D50", art: "#655D50" },
+  sky: { c: "#CFDDE1", t: "#303F50", art: "#303F50" },
+  berry: { c: "#40574C", t: "#FFFDF8", art: "#FFFDF8" },
 };
 export const planCol = (c: string | null | undefined): TicketCol => PLAN_COLORS[(c as PlanColor) in PLAN_COLORS ? (c as PlanColor) : "rose"];
 
