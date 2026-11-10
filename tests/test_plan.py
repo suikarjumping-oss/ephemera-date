@@ -555,6 +555,7 @@ def test_rest_auth_only_her_token(api):
 
 
 def test_rest_list_one_events_read(api):
+    api.clock["now"] = NOW0
     p1, (s1, s2, s3) = make_plan()
     p2, _ = make_plan(send=False)
     h = H()
